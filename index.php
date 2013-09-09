@@ -12,7 +12,7 @@
  */
 
 get_header(); ?>
-
+<script src="http://localhost:35739/livereload.js"></script>
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 
