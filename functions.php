@@ -83,9 +83,6 @@ add_action( 'widgets_init', 'britstrap_widgets_init' );
  * Enqueue scripts and styles
  */
 function britstrap_scripts() {
-	wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/css/bootstrap.css' );
-
-	wp_enqueue_style( 'bootstrap-theme', get_template_directory_uri() . '/css/bootstrap-theme.css' );
 
 	wp_enqueue_style( 'britstrap-style', get_stylesheet_uri() );
 

@@ -56,17 +56,17 @@ module.exports = function(grunt) {
         tasks: ['less:development']
       },
       options: {
-	      livereload: 35739
-	    },
+        livereload: 35739
+      },
     },
     less: {
       development: {
         files: {
           "style.css": [
             "stylesheets/banner.less",
-            "stylesheets/bootstrap/bootstrap.less",
-            "stylesheets/ui/*.less",
-            "stylesheets/_s.less"
+            "stylesheets/bootstrap.less",
+            "stylesheets/bootstrap-theme.less",
+            "stylesheets/ui/*.less"
           ]
         }
       },
