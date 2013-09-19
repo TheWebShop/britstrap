@@ -1,3 +1,10 @@
+(function($){
+	$(document).ready(function() {
+		$('#site-navigation').affix({
+			offset: { top: $('#site-navigation').offset().top }
+		});
+	});
+}(jQuery));
 /**
  * navigation.js
  *

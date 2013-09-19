@@ -42,10 +42,14 @@ function britstrap_setup() {
 	//add_theme_support( 'post-thumbnails' );
 
 	/**
-	 * This theme uses wp_nav_menu() in one location.
+	 * This theme uses wp_nav_menu() in 5 locations.
 	 */
-	register_nav_menus( array(
+	 register_nav_menus( array(
+		'top' => __( 'Top Menu', 'britstrap' ),
 		'primary' => __( 'Primary Menu', 'britstrap' ),
+		'sitemap' => __( 'Site Map', 'britstrap' ),
+		'footer' => __( 'Footer Menu', 'britstrap' ),
+		'subfooter' => __( 'Sub Footer', 'britstrap' )
 	) );
 
 	/**
@@ -85,6 +89,8 @@ add_action( 'widgets_init', 'britstrap_widgets_init' );
 function britstrap_scripts() {
 
 	wp_enqueue_style( 'britstrap-style', get_stylesheet_uri() );
+
+	wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/js/bootstrap.js', array('jquery'), '20120206', true );
 
 	wp_enqueue_script( 'britstrap-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
 
