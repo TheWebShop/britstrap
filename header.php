@@ -35,21 +35,26 @@
 							// No menu available: no output.
 							'fallback_cb'    => '__return_false'
 						) ); ?>
-					<div class="moreGovernmentLink text-center"><a href="http://www.gov.bc.ca/">Find more on gov.bc.ca »</a></div>
+					<div class="more-government-link text-center"><a href="http://www.gov.bc.ca/">Find more on gov.bc.ca »</a></div>
 				</div>
 			</nav>
 
-			<div class="container">
-				<div class="site-branding">
+			<div class="site-branding">
+				<div class="container">
 					<h1 class="site-title">
 						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
 							<img src="<?php echo get_template_directory_uri() ?>/images/bc_logo_hor.png" width="214px" height="70px" style="padding-right: 10px;">
 							<?php bloginfo( 'name' ); ?>
 						</a>
 					</h1>
+
+					<div class="site-services text-center">
+						<a href="http://www2.gov.bc.ca/en/services_finder/finder.page"><span class="glyphicon glyphicon-cog"></span> Services &amp; Forms</a>
+						<a href="https://extranet.gov.bc.ca/forms/gov/contact/index.html"><span class="glyphicon glyphicon-envelope"></span> Contact Government</a>
+						<?php get_search_form(); ?>
+					</div>
 				</div>
 			</div>
-
 
 			<nav id="site-navigation" class="main-navigation navbar navbar-default" role="navigation">
 				<div class="container">

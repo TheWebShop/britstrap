@@ -5927,21 +5927,30 @@ object {
   position: relative;
   background: #394559;
 }
-.moreGovernmentLink {
+.site-header a {
+  color: white;
+}
+.site-header a:hover {
+  color: white;
+}
+.screen-reader-text a,
+.screen-reader-text a:hover,
+.screen-reader-text a:visited {
+  position: absolute;
+  top: -500px;
+}
+.screen-reader-text a:active,
+.screen-reader-text a:focus {
+  position: static;
+}
+.more-government-link {
   display: none;
   padding: 5px 11px;
-}
-.moreGovernmentLink a {
-  color: white;
-}
-.moreGovernmentLink a:hover {
-  color: white;
 }
 .site-title {
   margin: 16px 0;
 }
 .site-title a {
-  color: white;
   font-size: 30px;
 }
 .site-title a:hover {
@@ -5970,6 +5979,28 @@ nav.affix {
   background-color: #E7EAF1;
   color: #384556;
 }
+.site-branding .container {
+  position: relative;
+}
+.site-services {
+  height: 60px;
+  width: 410px;
+  overflow: auto;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+}
+.site-services a {
+  padding: 3px 2em;
+}
+.site-services a:not(:last-of-type) {
+  border-right: 1px solid #9E9E9C;
+}
+.search-field {
+  width: 300px;
+}
 .main-navigation-placeholder {
   height: 50px;
   padding: 5px 11px;
@@ -5985,22 +6016,12 @@ nav.affix {
   background-repeat: no-repeat;
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAuCAYAAADgBNMQAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACNJREFUeNpi/P//PwM6YGLAAkaQ4P/RABn0goyjAYIAAAEGAKI8BFm0NkQ3AAAAAElFTkSuQmCC);
 }
-.screen-reader-text a,
-.screen-reader-text a:hover,
-.screen-reader-text a:visited {
-  position: absolute;
-  top: -500px;
-}
-.screen-reader-text a:active,
-.screen-reader-text a:focus {
-  position: static;
-}
 /* Large devices (large desktops, 1200px and up) */
 @media (max-width: 1200px) {
   .menu-top-navigation-container {
     display: none;
   }
-  .moreGovernmentLink {
+  .more-government-link {
     display: block;
   }
 }
