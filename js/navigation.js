@@ -1,8 +1,11 @@
 (function($){
 	$(document).ready(function() {
-		$('#site-navigation').affix({
-			offset: { top: $('#site-navigation').offset().top }
-		});
+		console.log($(window).width())
+		if($(window).width() >= 768) {
+			$('#site-navigation').affix({
+				offset: { top: $('#site-navigation').offset().top }
+			});
+		}
 	});
 }(jQuery));
 /**
