@@ -1,5 +1,9 @@
+var gm = require('gm');
+
 /*global module:false*/
 module.exports = function(grunt) {
+
+  require('load-grunt-tasks')(grunt);
 
   // Project configuration.
   grunt.initConfig({
@@ -78,17 +82,92 @@ module.exports = function(grunt) {
           "css/strap.css": "less/bootstrap.less"
         }
       }
+    },
+    autoshot: {
+      default_options: {
+        options: {
+          path: 'screenshots',
+          filename: 'screenshot',
+          type: 'png',
+          remote: 'http://localhost/britstrap/?page_id=26',
+          viewport: ['480x320', '1024x768', '1920x1080'] 
+        },
+      },
+    },
+    rename: {
+      main: {
+        files: [
+          {src: ['screenshots/remote-screenshot-480x320.png'], dest: 'screenshots/mobile-480x320.png'},
+          {src: ['screenshots/remote-screenshot-1024x768.png'], dest: 'screenshots/tablet-1024x768.png'},
+          {src: ['screenshots/remote-screenshot-1920x1080.png'], dest: 'screenshots/desktop-1920x1080.png'}
+        ]
+      }
+    },
+    // generates a WP theme thumbnail from screenshot
+    resize : {
+      options: {
+        width: 600,
+        height: 450,
+        to: 'screenshot.png'
+      },
+      mobile: {
+        options: {
+          from: 'screenshots/mobile-480x320.png'
+        }
+      },
+      tablet: {
+        options: {
+          from: 'screenshots/tablet-1024x768.png'
+        }
+      },
+      desktop: {
+        options: {
+          from: 'screenshots/desktop-1920x1080.png'
+        }
+      }
     }
   });
 
-  // These plugins provide necessary tasks.
-  grunt.loadNpmTasks('grunt-contrib-concat');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-contrib-less');
+  grunt.registerMultiTask('resize', 'Resizes images to limiting dimension then crops.', function() {
+    var done = this.async();
+    var options = this.options();
 
-  // Default task.
+    gm.prototype.fitVertical = function(start, end) {
+      var width = start.width * (end.height/start.height);
+      var offsetLeft = (width - end.width)/2;
+
+      grunt.log.writeln('Resizing to fit vertically, then cropping.');
+
+      return this.resize(null, end.height)
+        .crop(end.width, end.height, offsetLeft, 0);
+    }
+    gm.prototype.fitHorizontal = function(start, end) {
+      var height = start.height * (end.width/start.width);
+      var offsetTop = (height - end.height)/2;
+
+      grunt.log.writeln('Resizing to fit horizontally, then cropping.');
+
+      return this.resize(end.width)
+        .crop(end.width, end.height, 0, offsetTop);
+    }
+    
+
+    grunt.file.delete(options.to)
+    var image = gm(options.from)
+      .size(function (err, size) {
+
+        if(size.width/size.height > options.width/options.height) {
+          image.fitVertical(size, options);
+        }else {
+          image.fitHorizontal(size, options);
+        }
+        image.write(options.to, function (err) {
+          if(!err)
+            done();
+        });
+      });
+  });
+
+  grunt.registerTask('ss', ['autoshot', 'rename', 'resize:desktop']);
   grunt.registerTask('default', ['jshint', 'concat', 'uglify']);
-
 };
