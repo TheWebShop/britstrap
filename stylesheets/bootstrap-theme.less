@@ -10,8 +10,8 @@
 // -------------------------
 
 p {
-  margin: 0;
-  padding: (@line-height-computed / 2) 0 ;
+	margin: 0;
+	padding: (@line-height-computed / 2) 0 ;
 }
 
 // Headings
@@ -19,7 +19,7 @@ p {
 
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
-  margin: 10px 0;
+	margin: 10px 0;
 }
 
 h1, .h1 { font-size: 25px; }
@@ -29,21 +29,33 @@ h4, .h4 { font-size: 14px; }
 h5, .h5 { font-size: 13px; margin: 5px 0; }
 
 ul {
-  padding-left: 0;
+	padding-left: 0;
 }
 li {
-  margin-left: 10px;
-  padding-left: 1.5em;
-  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAANlJREFUeNpi/P//PwM1AQuIsHKLug+kFgLxhOO7l3+gxEAmKL0BiOuB+L6la2QDEAuQayAjyMtAFxoA2eeRxEGunEiOi8EGMjIyMgBd9R7IR3fZAyBuBBq6gFQvg8ABLPIKQDwfaBkoKBJINfAiHnVEG4xs4AUiHEDQYCa0iCAW4DSYicJ0jGEwciw7APn7KbTgAhOVchwouBqB2JGFCgahZABkAwUoMQilcIACA0oMwmagPiUGYTPQgRKDUAwEJhkDtDAku7SBuTCeUoPQDQyApiOKS2yAAAMAqjRoTaOEYG8AAAAASUVORK5CYII=);
-  background-position-y: 4px;
-  background-size: 10px 10px;
-  background-repeat: no-repeat;
-  list-style: none;
+	margin-left: 10px;
+	padding-left: 1.5em;
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAANlJREFUeNpi/P//PwM1AQuIsHKLug+kFgLxhOO7l3+gxEAmKL0BiOuB+L6la2QDEAuQayAjyMtAFxoA2eeRxEGunEiOi8EGMjIyMgBd9R7IR3fZAyBuBBq6gFQvg8ABLPIKQDwfaBkoKBJINfAiHnVEG4xs4AUiHEDQYCa0iCAW4DSYicJ0jGEwciw7APn7KbTgAhOVchwouBqB2JGFCgahZABkAwUoMQilcIACA0oMwmagPiUGYTPQgRKDUAwEJhkDtDAku7SBuTCeUoPQDQyApiOKS2yAAAMAqjRoTaOEYG8AAAAASUVORK5CYII=);
+	background-position-y: 4px;
+	background-size: 10px 10px;
+	background-repeat: no-repeat;
+	list-style: none;
+}
+.dropdown-menu li {
+	margin: 0;
+	padding: 0;
+}
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus,
+.dropdown-menu > .active > a,
+.dropdown-menu > .active > a:hover,
+.dropdown-menu > .active > a:focus {
+  #gradient > .vertical(@start-color: @dropdown-link-hover-bg; @end-color: darken(@dropdown-link-hover-bg, 5%));
+  background-color: darken(@dropdown-link-hover-bg, 5%);
 }
 
 .navbar {
-  border: none;
+	border: none;
 }
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
-  text-decoration: underline;
+	text-decoration: underline;
 }

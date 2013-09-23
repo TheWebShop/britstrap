@@ -74,6 +74,15 @@ nav.affix {
   }
 }
 
+.main-navigation {
+  .transition(opacity .25s ease-in-out;)
+}
+.main-navigation.affix {
+  //opacity: .5;
+}
+.main-navigation.affix:hover {
+  opacity: 1;
+}
 .main-navigation a:hover {
   background: #636C7B;
 }
@@ -84,14 +93,25 @@ nav.affix {
   }
   .main-navigation {
     position: absolute;
-    bottom: 0;
     width: 100%;
     height: 46px;
     margin: 0;
   }
-  .main-navigation li {
+  .menu-primary>li {
+    padding: 0;
+    margin: 0;
     background-repeat: no-repeat;
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAuCAYAAADgBNMQAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACNJREFUeNpi/P//PwM6YGLAAkaQ4P/RABn0goyjAYIAAAEGAKI8BFm0NkQ3AAAAAElFTkSuQmCC);
+  }
+  .main-navigation li.current-menu-ancestor > a {
+    background: #636C7B;
+  }
+  .main-navigation .navbar-nav > li:hover > a, .main-navigation .navbar-nav > li > a:focus {
+    background: #E1E3E6;
+    color: #283649;
+  }
+  .menu-primary>li:hover .sub-menu {
+    display: block;
   }
 }
 

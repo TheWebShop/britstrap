@@ -62,7 +62,7 @@ function britstrap_setup() {
 	 */
 	add_theme_support( 'custom-background', apply_filters( 'britstrap_custom_background_args', array(
 		'default-color' => 'ffffff',
-		'default-image' => '',
+		'default-image' => ''
 	) ) );
 }
 endif; // britstrap_setup
@@ -110,6 +110,11 @@ add_action( 'wp_enqueue_scripts', 'britstrap_scripts' );
  * Implement the Custom Header feature.
  */
 //require get_template_directory() . '/inc/custom-header.php';
+
+/**
+ * Custom main nav structure to conform with Bootstrap navbar.
+ */
+require get_template_directory() . '/inc/walker-nav-menu.php';
 
 /**
  * Custom template tags for this theme.
