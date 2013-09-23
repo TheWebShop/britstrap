@@ -43,7 +43,7 @@
 				<div class="container">
 					<h1 class="site-title text-center">
 						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
-							<img src="<?php echo get_template_directory_uri() ?>/images/bc_logo_hor.png" width="214px" height="70px" style="padding-right: 10px;">
+							<img src="<?php echo get_template_directory_uri() ?>/images/bc-logo-hor.png" width="214px" height="70px" style="padding-right: 10px;">
 							<?php bloginfo( 'name' ); ?>
 						</a>
 					</h1>
