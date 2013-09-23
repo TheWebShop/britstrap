@@ -132,25 +132,21 @@ module.exports = function(grunt) {
     var done = this.async();
     var options = this.options();
 
+    gm.prototype.fitHorizontal = function(start, end) {
+      grunt.log.writeln('Resizing to fit horizontally, then cropping top.');
+
+      return this.resize(end.width)
+        .crop(end.width, end.height, 0, 0);
+    }
     gm.prototype.fitVertical = function(start, end) {
       var width = start.width * (end.height/start.height);
       var offsetLeft = (width - end.width)/2;
 
-      grunt.log.writeln('Resizing to fit vertically, then cropping.');
+      grunt.log.writeln('Resizing to fit vertically, then cropping centered.');
 
       return this.resize(null, end.height)
         .crop(end.width, end.height, offsetLeft, 0);
     }
-    gm.prototype.fitHorizontal = function(start, end) {
-      var height = start.height * (end.width/start.width);
-      var offsetTop = (height - end.height)/2;
-
-      grunt.log.writeln('Resizing to fit horizontally, then cropping.');
-
-      return this.resize(end.width)
-        .crop(end.width, end.height, 0, offsetTop);
-    }
-    
 
     grunt.file.delete(options.to)
     var image = gm(options.from)
@@ -161,10 +157,7 @@ module.exports = function(grunt) {
         }else {
           image.fitHorizontal(size, options);
         }
-        image.write(options.to, function (err) {
-          if(!err)
-            done();
-        });
+        image.write(options.to, done);
       });
   });
 

@@ -6050,6 +6050,9 @@ nav.affix {
     bottom: 0;
     right: 0;
   }
+  .search-collapse.collapse {
+    display: block !important;
+  }
 }
 
 .site-main [class*="navigation"] {
