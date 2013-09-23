@@ -52,7 +52,7 @@
 						<div class="site-services text-center">
 							<a href="http://www2.gov.bc.ca/en/services_finder/finder.page"><span class="glyphicon glyphicon-cog"></span> Services &amp; Forms</a>
 							<a href="https://extranet.gov.bc.ca/forms/gov/contact/index.html"><span class="glyphicon glyphicon-envelope"></span> Contact Government</a>
-							
+
 							<?php get_search_form(); ?>
 						</div>
 					</div>
@@ -76,7 +76,8 @@
 					<div class="collapse navbar-collapse navbar-ex1-collapse">
 						<?php wp_nav_menu( array(
 							'theme_location'  => 'primary',
-							'menu_class'      => 'nav navbar-nav'
+							'menu_class'      => 'menu-primary nav navbar-nav',
+							'walker'         => new britstrap_walker_nav_menu
 						) ); ?>
 					</div>
 				</div>
