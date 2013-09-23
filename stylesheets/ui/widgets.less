@@ -1,6 +1,5 @@
-.widget {
-  margin: 0 0 1.5em;
-}
+@import "../variables.less";
+@import "../mixins.less";
 
 /* Make sure select elements fit in widgets */
 .widget select {
@@ -10,4 +9,36 @@
 /* Search widget */
 .widget_search .search-submit {
   display: none;
+}
+
+.widget {
+  margin: 1em 0;
+  background-color: #E6E6E6;
+  border: 1px solid #D3D3D3;
+  color: #646464;
+  border-radius: @border-radius-base;
+  .clearfix();
+  font-size: @font-size-small;
+}
+.widget-title {
+  font-weight: normal;
+  font-size: @font-size-large;
+  color: #282828;
+  border-bottom: 1px solid #D3D3D3;
+  padding: 10px;
+  margin: 0;
+}
+.widget-content {
+  padding: 10px;
+}
+
+.widget ul {
+  padding-left: 25px;
+  margin: 0 0 5px 0;
+}
+.widget li {
+  list-style: disc;
+  background: none;
+  padding: 0;
+  margin: 0;
 }

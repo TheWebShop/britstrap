@@ -1667,15 +1667,15 @@ fieldset[disabled] .checkbox-inline {
   cursor: not-allowed;
 }
 .input-sm {
-  height: 30px;
+  height: 28px;
   padding: 5px 10px;
-  font-size: 12px;
+  font-size: 11px;
   line-height: 1.5;
   border-radius: 3px;
 }
 select.input-sm {
-  height: 30px;
-  line-height: 30px;
+  height: 28px;
+  line-height: 28px;
 }
 textarea.input-sm {
   height: auto;
@@ -2135,7 +2135,7 @@ fieldset[disabled] .btn-link:focus {
 .btn-sm,
 .btn-xs {
   padding: 5px 10px;
-  font-size: 12px;
+  font-size: 11px;
   line-height: 1.5;
   border-radius: 3px;
 }
@@ -2885,7 +2885,7 @@ input[type="button"].btn-block {
 .dropdown-header {
   display: block;
   padding: 3px 20px;
-  font-size: 12px;
+  font-size: 11px;
   line-height: 1.428571429;
   color: #999999;
 }
@@ -3039,14 +3039,14 @@ input[type="button"].btn-block {
 }
 .btn-group-xs > .btn {
   padding: 5px 10px;
-  font-size: 12px;
+  font-size: 11px;
   line-height: 1.5;
   border-radius: 3px;
   padding: 1px 5px;
 }
 .btn-group-sm > .btn {
   padding: 5px 10px;
-  font-size: 12px;
+  font-size: 11px;
   line-height: 1.5;
   border-radius: 3px;
 }
@@ -3196,17 +3196,17 @@ textarea.input-group-lg > .input-group-btn > .btn {
 .input-group-sm > .form-control,
 .input-group-sm > .input-group-addon,
 .input-group-sm > .input-group-btn > .btn {
-  height: 30px;
+  height: 28px;
   padding: 5px 10px;
-  font-size: 12px;
+  font-size: 11px;
   line-height: 1.5;
   border-radius: 3px;
 }
 select.input-group-sm > .form-control,
 select.input-group-sm > .input-group-addon,
 select.input-group-sm > .input-group-btn > .btn {
-  height: 30px;
-  line-height: 30px;
+  height: 28px;
+  line-height: 28px;
 }
 textarea.input-group-sm > .form-control,
 textarea.input-group-sm > .input-group-addon,
@@ -3241,7 +3241,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 .input-group-addon.input-sm {
   padding: 5px 10px;
-  font-size: 12px;
+  font-size: 11px;
   border-radius: 3px;
 }
 .input-group-addon.input-lg {
@@ -4126,7 +4126,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 .pagination-sm > li > a,
 .pagination-sm > li > span {
   padding: 5px 10px;
-  font-size: 12px;
+  font-size: 11px;
 }
 .pagination-sm > li:first-child > a,
 .pagination-sm > li:first-child > span {
@@ -4267,7 +4267,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
   display: inline-block;
   min-width: 10px;
   padding: 3px 7px;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: bold;
   color: #ffffff;
   line-height: 1;
@@ -4478,7 +4478,7 @@ a.thumbnail:focus {
   float: left;
   width: 0%;
   height: 100%;
-  font-size: 12px;
+  font-size: 11px;
   color: #ffffff;
   text-align: center;
   background-color: #0088cc;
@@ -5000,7 +5000,7 @@ body.modal-open,
   z-index: 1030;
   display: block;
   visibility: visible;
-  font-size: 12px;
+  font-size: 11px;
   line-height: 1.4;
   opacity: 0;
   filter: alpha(opacity=0);
@@ -6020,7 +6020,6 @@ nav.affix {
 .site-services {
   width: 410px;
   margin: 0 auto;
-  overflow: auto;
   padding-bottom: 1em;
 }
 .site-services a {
@@ -6051,7 +6050,10 @@ nav.affix {
     right: 0;
   }
   .search-collapse.collapse {
-    display: block !important;
+    display: block;
+  }
+  .search-field {
+    width: 303px;
   }
 }
 
@@ -6069,9 +6071,6 @@ nav.affix {
   width: 50%;
 }
 
-.widget {
-  margin: 0 0 1.5em;
-}
 /* Make sure select elements fit in widgets */
 .widget select {
   max-width: 100%;
@@ -6079,4 +6078,45 @@ nav.affix {
 /* Search widget */
 .widget_search .search-submit {
   display: none;
+}
+.widget {
+  margin: 1em 0;
+  background-color: #E6E6E6;
+  border: 1px solid #D3D3D3;
+  color: #646464;
+  border-radius: 4px;
+  font-size: 11px;
+}
+.widget:before,
+.widget:after {
+  content: " ";
+  /* 1 */
+
+  display: table;
+  /* 2 */
+
+}
+.widget:after {
+  clear: both;
+}
+.widget-title {
+  font-weight: normal;
+  font-size: 17px;
+  color: #282828;
+  border-bottom: 1px solid #D3D3D3;
+  padding: 10px;
+  margin: 0;
+}
+.widget-content {
+  padding: 10px;
+}
+.widget ul {
+  padding-left: 25px;
+  margin: 0 0 5px 0;
+}
+.widget li {
+  list-style: disc;
+  background: none;
+  padding: 0;
+  margin: 0;
 }
