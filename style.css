@@ -6150,18 +6150,6 @@ nav.affix {
   border-radius: 4px;
   font-size: 11px;
 }
-.widget:before,
-.widget:after {
-  content: " ";
-  /* 1 */
-
-  display: table;
-  /* 2 */
-
-}
-.widget:after {
-  clear: both;
-}
 .widget-title {
   font-weight: normal;
   font-size: 17px;
