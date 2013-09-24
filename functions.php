@@ -75,7 +75,7 @@ function britstrap_widgets_init() {
 	register_sidebar( array(
 		'name'          => __( 'Sidebar', 'britstrap' ),
 		'id'            => 'sidebar-1',
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'before_widget' => '<aside id="%1$s" class="widget %2$s clearfix">',
 		'after_widget'  => '</div></aside>',
 		'before_title'  => '<h1 class="widget-title">',
 		'after_title'   => '</h1><div class="widget-content">',
@@ -113,6 +113,7 @@ add_action( 'wp_enqueue_scripts', 'britstrap_scripts' );
 
 /**
  * Custom main nav structure to conform with Bootstrap navbar.
+ * britstrap_walker_nav_menu
  */
 require get_template_directory() . '/inc/walker-nav-menu.php';
 
