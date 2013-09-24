@@ -1,6 +1,7 @@
+/*global module:false,require:false*/
+
 var gm = require('gm');
 
-/*global module:false*/
 module.exports = function(grunt) {
 
   require('load-grunt-tasks')(grunt);
@@ -33,11 +34,12 @@ module.exports = function(grunt) {
         src: '<%= concat.dist.dest %>',
         dest: 'dist/<%= pkg.name %>.min.js'
       }
-    },
+    }, 
     jshint: {
       options: {
-        curly: true,
+        curly: false,
         eqeqeq: true,
+        es3: true,
         immed: true,
         latedef: true,
         newcap: true,
@@ -51,10 +53,30 @@ module.exports = function(grunt) {
         globals: {}
       },
       gruntfile: {
+        options: {
+          es3: false
+        },
         src: 'Gruntfile.js'
+      },
+      js: {
+        src: 'js/*.js'
       }
     },
     watch: {
+      gruntfile: {
+        files: 'Gruntfile.js',
+        tasks: ['jshint:gruntfile']
+      },
+      js: {
+        files: 'js/*.js',
+        tasks: ['jshint:js']
+      },
+      php: {
+        files: [
+        '*.php',
+        'inc/*.php'
+        ]
+      }, 
       stylesheets: {
         files: 'stylesheets/**/*.less',
         tasks: ['less:development']
@@ -137,7 +159,7 @@ module.exports = function(grunt) {
 
       return this.resize(end.width)
         .crop(end.width, end.height, 0, 0);
-    }
+    };
     gm.prototype.fitVertical = function(start, end) {
       var width = start.width * (end.height/start.height);
       var offsetLeft = (width - end.width)/2;
@@ -146,9 +168,9 @@ module.exports = function(grunt) {
 
       return this.resize(null, end.height)
         .crop(end.width, end.height, offsetLeft, 0);
-    }
+    };
 
-    grunt.file.delete(options.to)
+    grunt.file.delete(options.to);
     var image = gm(options.from)
       .size(function (err, size) {
 
@@ -161,6 +183,7 @@ module.exports = function(grunt) {
       });
   });
 
+  grunt.registerTask('build', ['jshint', 'concat', 'uglify']);
   grunt.registerTask('ss', ['autoshot', 'rename', 'resize:desktop']);
-  grunt.registerTask('default', ['jshint', 'concat', 'uglify']);
+  grunt.registerTask('default', ['watch']);
 };
