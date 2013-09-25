@@ -90,7 +90,7 @@ function britstrap_scripts() {
 
 	wp_enqueue_style( 'britstrap-style', get_stylesheet_uri() );
 
-	wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/js/bootstrap.js', array('jquery'), '20120206', true );
+	wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/js/vendor/bootstrap.js', array('jquery'), '20120206', true );
 
 	wp_enqueue_script( 'britstrap-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
 
