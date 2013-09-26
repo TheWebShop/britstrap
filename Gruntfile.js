@@ -22,7 +22,7 @@ module.exports = function(grunt) {
         stripBanners: true
       },
       public: {
-        src: ['js/public/*.js'],
+        src: ['js/vendor/*.js', 'js/public/*.js'],
         dest: 'js/dist/<%= pkg.name %>.js'
       }
     },
@@ -31,7 +31,7 @@ module.exports = function(grunt) {
         banner: '<%= banner %>'
       },
       public: {
-        src: '<%= concat.dist.dest %>',
+        src: '<%= concat.public.dest %>',
         dest: 'js/dist/<%= pkg.name %>.js'
       }
     },
@@ -59,7 +59,7 @@ module.exports = function(grunt) {
         src: 'Gruntfile.js'
       },
       js: {
-        src: 'js/*.js'
+        src: 'js/public/*.js'
       }
     },
     watch: {
