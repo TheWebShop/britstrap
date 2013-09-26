@@ -21,20 +21,20 @@ module.exports = function(grunt) {
         banner: '<%= banner %>',
         stripBanners: true
       },
-      dist: {
-        src: ['js/src/<%= pkg.name %>.js'],
-        dest: 'js/dist/<%= pkg.name %>.min.js'
+      public: {
+        src: ['js/public/*.js'],
+        dest: 'js/dist/<%= pkg.name %>.js'
       }
     },
     uglify: {
       options: {
         banner: '<%= banner %>'
       },
-      dist: {
+      public: {
         src: '<%= concat.dist.dest %>',
-        dest: 'dist/<%= pkg.name %>.min.js'
+        dest: 'js/dist/<%= pkg.name %>.js'
       }
-    }, 
+    },
     jshint: {
       options: {
         curly: false,
@@ -68,15 +68,15 @@ module.exports = function(grunt) {
         tasks: ['jshint:gruntfile']
       },
       js: {
-        files: 'js/*.js',
-        tasks: ['jshint:js']
+        files: 'js/public/*.js',
+        tasks: ['jshint:js', 'concat']
       },
       php: {
         files: [
         '*.php',
         'inc/*.php'
         ]
-      }, 
+      },
       stylesheets: {
         files: 'stylesheets/**/*.less',
         tasks: ['less:development']
@@ -98,10 +98,16 @@ module.exports = function(grunt) {
       },
       production: {
         options: {
-          yuicompress: true
+          yuicompress: true,
+          report: 'gzip'
         },
         files: {
-          "css/strap.css": "less/bootstrap.less"
+          "style.css": [
+            "stylesheets/banner.less",
+            "stylesheets/bootstrap.less",
+            "stylesheets/bootstrap-theme.less",
+            "stylesheets/ui/*.less"
+          ]
         }
       }
     },
@@ -112,7 +118,7 @@ module.exports = function(grunt) {
           filename: 'screenshot',
           type: 'png',
           remote: 'http://localhost/britstrap/?page_id=26',
-          viewport: ['480x320', '1024x768', '1920x1080'] 
+          viewport: ['480x320', '1024x768', '1920x1080']
         },
       },
     },
@@ -183,7 +189,7 @@ module.exports = function(grunt) {
       });
   });
 
-  grunt.registerTask('build', ['jshint', 'concat', 'uglify']);
+  grunt.registerTask('build', ['jshint', 'concat', 'uglify', 'less:production']);
   grunt.registerTask('ss', ['autoshot', 'rename', 'resize:desktop']);
   grunt.registerTask('default', ['watch']);
 };
