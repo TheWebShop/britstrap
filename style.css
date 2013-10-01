@@ -5924,21 +5924,13 @@ li {
 }
 .media-links {
   padding: 10px 0;
-  border-radius: 7px;
   background: white;
-  display: table;
-  width: 100%;
 }
 .media-links-header {
-  display: table-cell;
   padding-left: 1em;
 }
-.media-links-wrapper {
-  display: table-cell;
-}
 .menu-media-links {
-  text-align: right;
-  padding-right: 2em;
+  margin: 10px 5px;
 }
 .menu-media-links a {
   color: #394559;
@@ -5947,12 +5939,43 @@ li {
   color: #394559;
   text-decoration: underline;
 }
-.media-links .menu-item:not(:first-of-type) {
-  border-left: 1px solid #394559;
+@media (min-width: 992px) {
+  .media-links {
+    display: table;
+    width: 100%;
+  }
+  .media-links-header {
+    display: table-cell;
+  }
+  .media-links-wrapper {
+    display: table-cell;
+    width: 100%;
+  }
+  .media-links {
+    border-radius: 7px;
+  }
+  .media-links li {
+    display: inline-block;
+  }
+  .menu-media-links {
+    text-align: right;
+    padding-right: 2em;
+    margin: 0;
+  }
+  .menu-media-links > li {
+    padding: 0 15px;
+    margin: 0;
+  }
+  .menu-media-links > li:not(:first-of-type) {
+    border-left: 1px solid #394559;
+  }
 }
-.menu-media-links > li {
-  padding: 0 15px;
-  margin: 0;
+@media (max-width: 992px) {
+  .container-large-only {
+    margin: 0;
+    padding: 0;
+    max-width: 992px;
+  }
 }
 .menu-sub-footer {
   padding-right: 2em;

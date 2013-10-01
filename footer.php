@@ -40,24 +40,28 @@
 				'menu_id'			=> 'main-nav-bottom',
 				'fallback_cb'		=> false,
 			) ); ?>
-
+		</div>
+		<div data-min-width-screen-md="container">
 			<nav class="media-links" role="navigation">
-				<div class="media-links-header">
-					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
-						<img src="<?php echo get_template_directory_uri(); ?>/images/bc-logo-small.gif" width="180px" height="48px" style="padding-right: 10px;">
-						<span class="sr-only"><?php bloginfo( 'name' ); ?></span>
-					</a>
-				</div>
+				<div class="container" data-max-width-screen-md="container">
+					<div class="media-links-header">
+						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
+							<img src="<?php echo get_template_directory_uri(); ?>/images/bc-logo-small.gif" width="180px" height="48px" style="padding-right: 10px;">
+							<span class="sr-only"><?php bloginfo( 'name' ); ?></span>
+						</a>
+					</div>
 
-				<div class="media-links-wrapper">
-					<?php 	wp_nav_menu( array(
-						'theme_location'	=> 'footer',
-						'menu_class'		=> 'menu-media-links list-inline',
-						'fallback_cb'		=> false,
-					) ); ?>
+					<div class="media-links-wrapper">
+						<?php 	wp_nav_menu( array(
+							'theme_location'	=> 'footer',
+							'menu_class'		=> 'menu-media-links',
+							'fallback_cb'		=> false,
+						) ); ?>
+					</div>
 				</div>
 			</nav>
-
+		</div>
+		<div class="container">
 			<?php wp_nav_menu( array(
 				'theme_location'	=> 'subfooter',
 				'container_class'	=> 'menu-admin-links-container text-right',
@@ -67,7 +71,7 @@
 			<div class="site-credits micro">
 				<?php echo $theme_options['credits']; ?>
 			</div><!-- .site-info -->
-		</div><!-- .container -->
+		</div>
 	</footer><!-- #colophon .site-footer -->
 
 </div><!-- #page -->
