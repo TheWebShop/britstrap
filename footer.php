@@ -41,9 +41,9 @@
 				'fallback_cb'		=> false,
 			) ); ?>
 		</div>
-		<div data-min-width-screen-md="container">
+		<div data-min-width-992px="container">
 			<nav class="media-links" role="navigation">
-				<div class="container" data-max-width-screen-md="container">
+				<div data-max-width-992px="container">
 					<div class="media-links-header">
 						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
 							<img src="<?php echo get_template_directory_uri(); ?>/images/bc-logo-small.gif" width="180px" height="48px" style="padding-right: 10px;">

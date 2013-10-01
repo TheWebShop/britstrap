@@ -1,25 +1,29 @@
 /* global jQuery:false,enquire:false*/
 (function($){
-	enquire.register("screen and (min-width: 992px)", {
-		match : function() {
-			$('[data-max-width-screen-md]').each(function(i, el) {
-				var outgoing = $(el).data('max-width-screen-md');
-				$(el).removeClass(outgoing);
-			});
-			$('[data-min-width-screen-md]').each(function(i, el) {
-				var incoming = $(el).data('min-width-screen-md');
-				$(el).addClass(incoming);
-			});
-		},  
-		unmatch : function() {
-			$('[data-min-width-screen-md]').each(function(i, el) {
-				var outgoing = $(el).data('min-width-screen-md');
-				$(el).removeClass(outgoing);
-			});
-			$('[data-max-width-screen-md]').each(function(i, el) {
-				var incoming = $(el).data('max-width-screen-md');
-				$(el).addClass(incoming);
-			});
-		}
-	});
+	var ConditionalClass = function(breakpoint) {
+		this.breakpoint = breakpoint;
+		this.registerListeners();
+	};
+	ConditionalClass.prototype.registerListeners = function() {
+		var breakpoint = this.breakpoint;
+		var enquireHandler = function(breakpoint, side, isMatch) {
+			return function() {
+				$('[data-' + side + '-width-' + breakpoint + ']').each(function(i, el) {
+					var classNames = $(el).data(side + '-width-' + breakpoint);
+					$(el)[isMatch? 'addClass': 'removeClass'](classNames);
+				});
+			};
+		};
+
+		enquire.register('screen and (min-width: ' + breakpoint + ')', {
+			match : enquireHandler(breakpoint, 'min', true),  
+			unmatch : enquireHandler(breakpoint, 'min', false)
+		});
+		enquire.register('screen and (max-width: ' + breakpoint + ')', {
+			match : enquireHandler(breakpoint, 'max', true),  
+			unmatch : enquireHandler(breakpoint, 'max', false)
+		});
+	};
+
+	new ConditionalClass('992px');
 }(jQuery));
