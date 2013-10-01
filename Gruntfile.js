@@ -82,7 +82,7 @@ module.exports = function(grunt) {
         tasks: ['less:development']
       },
       options: {
-        livereload: 35739
+        livereload: 35639
       },
     },
     less: {
@@ -117,7 +117,7 @@ module.exports = function(grunt) {
           path: 'screenshots',
           filename: 'screenshot',
           type: 'png',
-          remote: 'http://localhost/britstrap/?page_id=26',
+          remote: 'http://localhost/britstrap/?p=40',
           viewport: ['480x320', '1024x768', '1920x1080']
         },
       },

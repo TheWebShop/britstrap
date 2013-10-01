@@ -16,7 +16,7 @@
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
 	<?php wp_head(); ?>
-	<script src="http://localhost:35739/livereload.js"></script>
+	<script src="http://localhost:35639/livereload.js"></script>
 </head>
 
 <body <?php body_class(); ?>>

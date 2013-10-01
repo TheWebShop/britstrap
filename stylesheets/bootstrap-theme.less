@@ -24,7 +24,7 @@ h1, h2, h3, h4, h5, h6,
 
 h1, .h1 { font-size: 25px; }
 h2, .h2 { font-size: 18px; }
-h3, .h3 { font-size: 15px; font-weight: bold; }
+h3, .h3 { font-size: (@font-size-base * 1.25); font-weight: bold; } // ~15px
 h4, .h4 { font-size: 14px; }
 h5, .h5 { font-size: 13px; margin: 5px 0; }
 
@@ -56,10 +56,16 @@ li {
 .navbar {
 	border: none;
 }
+.navbar-nav > li {
+	margin-left: 0;
+	padding-left: 0;
+}
+.navbar-nav > li > a {
+	padding: 16px 32px;
+}
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
 	text-decoration: underline;
 }
-
 .navbar-inverse {
 	border-radius: @border-radius-base;
 }
