@@ -24,8 +24,8 @@
 				<div class="collapse navbar-collapse navbar-ex3-collapse">
 					<?php wp_nav_menu( array(
 					'theme_location'	=> 'primary',
-					'menu_class'		=> 'menu-bottom-navigation nav navbar-nav main-nav',
-					'menu_id'			=> 'menu-bottom-navigation',
+					'menu_class'		=> 'menu-primary-bottom nav navbar-nav main-nav',
+					'menu_id'			=> 'menu-primary-bottom',
 					'depth'				=> 1,
 					'fallback_cb'		=> false
 					) ); ?>
@@ -36,8 +36,8 @@
 		<div class="container">
 			<?php wp_nav_menu( array(
 				'theme_location'	=> 'sitemap',
-				'menu_class'		=> 'menu site-map clearfix',
-				'menu_id'			=> 'main-nav-bottom',
+				'menu_class'		=> 'menu-site-map menu site-map clearfix',
+				'menu_id'			=> 'menu-site-map',
 				'fallback_cb'		=> false,
 			) ); ?>
 		</div>
@@ -54,7 +54,8 @@
 					<div class="media-links-wrapper">
 						<?php 	wp_nav_menu( array(
 							'theme_location'	=> 'footer',
-							'menu_class'		=> 'menu-media-links',
+							'menu_class'		=> 'menu-footer',
+							'menu_id'			=> 'menu-footer',
 							'fallback_cb'		=> false,
 						) ); ?>
 					</div>
@@ -64,8 +65,9 @@
 		<div class="container">
 			<?php wp_nav_menu( array(
 				'theme_location'	=> 'subfooter',
-				'container_class'	=> 'menu-admin-links-container text-right',
+				'container_class'	=> 'menu-sub-footer-container text-right',
 				'menu_class'		=> 'list-inline menu-sub-footer',
+				'menu_id'			=> 'menu-sub-footer',
 				'fallback_cb'		=> false
 			) ); ?>
 			<div class="site-credits micro">

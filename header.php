@@ -32,6 +32,7 @@
 					<?php wp_nav_menu( array(
 							'theme_location'  => 'top',
 							'menu_class'      => 'menu-top-navigation nav navbar-nav',
+							'menu_id'         => 'menu-top-navigation',
 							// No menu available: no output.
 							'fallback_cb'    => '__return_false'
 						) ); ?>
@@ -77,6 +78,7 @@
 						<?php wp_nav_menu( array(
 							'theme_location'  => 'primary',
 							'menu_class'      => 'menu-primary nav navbar-nav',
+							'menu_id'         => 'menu-primary',
 							'walker'         => new britstrap_walker_nav_menu
 						) ); ?>
 					</div>
